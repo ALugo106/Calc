@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-items: center;
+        }
+
+        #Main {
+            width: 500px;
+            height: 700px;
+            background-color: rgb(255, 166, 157);
+            border-right: 15px solid salmon;
+            border-bottom: 15px solid salmon;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #Calculation {
+               width: 400px;
+               height: 100px;
+               background-color: rgb(2, 190, 183); 
+               z-index: 1;
+               margin-top: 50px;
+               margin-left: 50px;
+               border-top: 10px solid rgb(0, 103, 100);
+               border-left: 10px solid rgb(0, 103, 100);
+               font-size: 3rem;
+            }
+
+            #Numbers {
+                display: grid;
+                width: 400px;
+                height: 430px;
+                background-color: rgb(0, 103, 100);
+                margin-top: 50px;
+                margin-left: 50px;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+                #Numbers > button {
+                    background-color: rgb(2, 190, 183);
+                    border: 10px solid rgb(0, 103, 100);
+                    text-align: center;
+                    border-right: 5px solid rgb(2, 24, 57);
+                    border-bottom: 5px solid rgb(2, 24, 57);
+                    font-size: x-large;
+                    font-weight: bolder;
+
+                }
+
+            .enter {
+                grid-column: 3/5;
+            }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="Main">
+
+        <input type="text" id="Calculation"></input>
+    
+    <div id="Numbers">
+        <button onclick="cont('1')">1</button>
+        <button onclick="cont('2')">2</button>
+        <button onclick="cont('3')">3</button>
+        <button onclick="cont('+')">+</button>
+        <button onclick="cont('4')">4</button>
+        <button onclick="cont('5')">5</button>
+        <button onclick="cont('6')">6</button>
+        <button onclick="cont('-')">-</button>
+        <button onclick="cont('7')">7</button>
+        <button onclick="cont('8')">8</button>
+        <button onclick="cont('9')">9</button>
+        <button onclick="cont('*')">*</button>
+        <button onclick="cont('(')">(</button>
+        <button onclick="cont('0')">0</button>
+        <button onclick="cont(')')">)</button>
+        <button onclick="cont('/')">/</button>
+        <button onclick="cont('.')">.</button>
+        <button onclick="dele()">C</button>
+        <button class="enter" onclick="solv()">Enter</button>
+    </div>
+
+    </div>
+
+
+    <script>
+
+        const calc = document.getElementById('Calculation')
+
+        function cont(value) {
+            calc.value += value;
+        }
+
+        function solv() {
+            calc.value = eval(calc.value);
+        }
+
+        function dele() {
+            calc.value = '';
+        }
+
+    </script>
+</body>
+</html>
